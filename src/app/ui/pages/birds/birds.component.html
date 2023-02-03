@@ -4,7 +4,7 @@
       <app-list [lista]="listaBirds" (newItemEvent)="addItem($event)"></app-list>
     </div>
     <div class="formulario col-3 background shadow">
-      <app-form-birds></app-form-birds>
+      <app-form-birds (event)="saveBird($event)"></app-form-birds>
     </div>
   </div>
 </div>

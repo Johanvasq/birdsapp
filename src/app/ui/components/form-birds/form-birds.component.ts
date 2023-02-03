@@ -10,7 +10,7 @@ export class FormBirdsComponent implements OnInit {
 
   guardarBtn:boolean = true;
   id: string = "";
-  cientificName: string = "a";
+  scientificName: string = "";
   name: string = "";
 
   @Output() event = new EventEmitter<IBirdModel>();
@@ -21,7 +21,13 @@ export class FormBirdsComponent implements OnInit {
   }
 
   saveBird(){
-    alert(this.cientificName)
+    let obj: IBirdModel = {
+      scientificName: this.scientificName,
+      commonName: this.name
+    }
+    this.event.emit(
+      obj
+    )
 
   }
 

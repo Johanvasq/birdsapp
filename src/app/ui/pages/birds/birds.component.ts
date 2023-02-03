@@ -1,5 +1,6 @@
 import { IBirdModel } from 'src/app/domain/models/bird/bird.model';
 import { Component, OnInit } from '@angular/core';
+import {BirdUseCase} from "../../../domain/usecase/bird.usecase";
 
 @Component({
   selector: 'app-birds',
@@ -22,7 +23,7 @@ export class BirdsComponent implements OnInit {
 
   bird : IBirdModel | null;
 
-  constructor() {
+  constructor(private birdUseCase: BirdUseCase) {
 
    }
 
@@ -31,6 +32,13 @@ export class BirdsComponent implements OnInit {
 
   addItem(newItem: IBirdModel | null) {
     this.bird = newItem
+  }
+  saveBird(item: IBirdModel){
+    this.birdUseCase.saveBird(item).subscribe(
+      result => {
+        alert("Guardado")
+      }
+    )
   }
 
 }

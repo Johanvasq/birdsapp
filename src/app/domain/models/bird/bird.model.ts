@@ -1,5 +1,5 @@
 export interface IBirdModel{
-    id: number;
+    id?: number;
     commonName: string;
     scientificName: string;
 }

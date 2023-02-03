@@ -22,7 +22,8 @@ import { FormBirdsComponent } from './form-birds/form-birds.component';
   exports:[
     NavbarComponent,
     ListComponent,
-    FormBirdsComponent
+    FormBirdsComponent,
+    FormsModule
   ]
 })
 export class ComponentsModule { }

@@ -1,17 +1,17 @@
 <form class="g-3 needs-validation" novalidate>
   <div class="col">
-    <label *ngIf="!guardarBtn" for="validationCustom01" class="form-label">Id: {{id}}</label>
+    <label *ngIf="!guardarBtn" class="form-label">Id: {{id}}</label>
   </div>
   <div class="col">
     <label for="validationCustom01" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="validationCustom01" value="{{name}}" required>
+    <input name="name" type="text" class="form-control" id="validationCustom01" [(ngModel)]="name" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col">
     <label for="validationCustom02" class="form-label">Nombre cientifico</label>
-    <input type="text" class="form-control" id="validationCustom02" value="{{cientificName}}" ngModel="cientificName"
+    <input name="cientificName" type="text" class="form-control" id="validationCustom02" [(ngModel)]="scientificName"
            required>
     <div class="valid-feedback">
       Looks good!

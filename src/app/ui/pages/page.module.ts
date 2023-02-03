@@ -8,15 +8,19 @@ import { CountryService } from '../../infrastucture/driven-adapter/country/count
 import { ZoneGateway } from '../../domain/models/zone/gateway/zone.gateway';
 import { ZoneService } from '../../infrastucture/driven-adapter/zone/zone.service';
 import { DomainModule } from '../../domain/domain.module';
-import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BirdsComponent } from './birds/birds.component';
+import { CountriesComponent } from './countries/countries.component';
+import { ZonesComponent } from './zones/zones.component';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    BirdsComponent,
+    CountriesComponent,
+    ZonesComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     {provide: ZoneGateway, useClass:ZoneService},
   ], 
   exports: [
-    HomeComponent
+    BirdsComponent
   ]
 })
 export class PageModule { }

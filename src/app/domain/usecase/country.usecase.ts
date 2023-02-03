@@ -18,7 +18,11 @@ export class CountryUseCase{
             })
         )
     }
-
+/**
+ * Servicio para actualizar Country
+ * @param params params: {name}
+ * @returns 
+ */
     updateCountry(params: ICountryRequest) : Observable<ICountryModel | null>{
         return this.countryGateway.updateCountry(params).pipe(
             catchError(() => {
@@ -26,7 +30,11 @@ export class CountryUseCase{
             })
         )
     }
-
+/**
+ * 
+ * @param id 
+ * @returns 
+ */
     findCountryById(id : number) : Observable<ICountryModel | null>{
         return this.countryGateway.findCountryById(id).pipe(
             catchError(() => {

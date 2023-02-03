@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,18 +6,10 @@ import { Output, EventEmitter } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  opcion: string = "lista";
-  
-  @Output() newItemEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  menu(param: string): void{
-    this.opcion = param;
-    this.newItemEvent.emit(this.opcion);
   }
 
 }

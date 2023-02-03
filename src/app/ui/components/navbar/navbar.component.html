@@ -1,8 +1,31 @@
-<div class="topnav">
-    <form class="form">
-        <button class="btn btn-outline-success" type="button" (click)="menu('listar')">Listar</button>
-        <button class="btn btn-sm btn-outline-secondary" type="button" (click)="menu('agregar')">Agregar</button>
-        <button class="btn btn-sm btn-outline-primary" type="button" (click)="menu('actualizar')">Actualizar</button>
-        <button class="btn btn-sm btn-outline-info" type="button" (click)="menu('eliminar')">Eliminar</button>
-      </form>
-</div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class=" collapse navbar-collapse ord" id="navbarNavAltMarkup">
+      <div class="navbar-nav ">
+        <a class="nav-link" [routerLink]="['/birds']" routerLinkActive="active"
+          >Pajaros</a
+        >
+        <a
+          class="nav-link"
+          [routerLink]="['/countries']"
+          routerLinkActive="active"
+          >Paises</a
+        >
+        <a class="nav-link" [routerLink]="['/zones']" routerLinkActive="active"
+          >Zona</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

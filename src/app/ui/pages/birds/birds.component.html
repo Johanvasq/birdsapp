@@ -1,0 +1,11 @@
+<div class="container mt-lg-5 ">
+  <div class="row">
+    <div class="lista col-8">
+      <app-list [lista]="listaBirds" (newItemEvent)="addItem($event)"></app-list>
+    </div>
+    <div class="formulario col-3 background shadow">
+      <app-form-birds></app-form-birds>
+    </div>
+  </div>
+</div>
+

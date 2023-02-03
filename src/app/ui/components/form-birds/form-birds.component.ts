@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {IBirdModel} from "../../../domain/models/bird/bird.model";
 
 @Component({
   selector: 'app-form-birds',
@@ -9,11 +10,19 @@ export class FormBirdsComponent implements OnInit {
 
   guardarBtn:boolean = true;
   id: string = "";
-  cientificName: string = "hola";
-  name: string = "hola";
+  cientificName: string = "a";
+  name: string = "";
+
+  @Output() event = new EventEmitter<IBirdModel>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  saveBird(){
+    alert(this.cientificName)
+
   }
 
 }

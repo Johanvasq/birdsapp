@@ -2,9 +2,13 @@
   display: flex;
   align-content: center;
   justify-content: center;
+
+}
+a{
+  color: #012030;
 }
 a:hover {
-  color: green;
+  color: #13678A;
   border-bottom: 2px solid green;
 }
 nav {
@@ -12,4 +16,10 @@ nav {
   -moz-box-shadow: 10px 12px 32px -8px rgba(0, 0, 0, 0.64);
   box-shadow: 10px 12px 32px -8px rgba(0, 0, 0, 0.64);
   margin-bottom: 30px;
+  color: white;
+
+}
+.navbar{
+  background: #DAFDBA;
+  height: 100px;
 }

@@ -11,13 +11,14 @@
   </div>
   <div class="col">
     <label for="validationCustom02" class="form-label">Nombre cientifico</label>
-    <input type="text" class="form-control" id="validationCustom02" value="{{cientificName}}" required >
+    <input type="text" class="form-control" id="validationCustom02" value="{{cientificName}}" ngModel="cientificName"
+           required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col mt-lg-5 justify-content-end d-flex">
-    <button *ngIf="guardarBtn" class="btn btn-primary" type="submit">Guardar</button>
+    <button *ngIf="guardarBtn" class="btn btn-primary" type="submit" (click)="saveBird()">Guardar</button>
     <button *ngIf="!guardarBtn" class="btn btn-primary" type="submit">Editar</button>
   </div>
 </form>

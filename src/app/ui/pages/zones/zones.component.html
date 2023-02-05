@@ -1,10 +1,10 @@
 <div class="container-sm mt-lg-5 ">
   <div class="row align-content-between">
     <div class="lista col-md-8">
-      <app-list-countries [lista]="listarZones" (editId)="addItem($event)" (deleteId)="delete($event)" ></app-list-countries>
+      <app-list-zones [lista]="listarZones" (editId)="addItem($event)" (deleteId)="delete($event)" ></app-list-zones>
     </div>
     <div class="formulario col-md-3 background shadow">
-      <app-form-countries (evento)="saveCountry($event)" [infoCountry]="zones" (eventoEdit)="updateCountry($event)"></app-form-countries>
+      <app-form-zones (evento)="saveZone($event)" [infoCountry]="zones" (eventoEdit)="updateZone($event)"></app-form-zones>
     </div>
   </div>
 </div>

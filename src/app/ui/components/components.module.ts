@@ -7,6 +7,8 @@ import { ListComponent } from './list/list.component';
 import { FormBirdsComponent } from './form-birds/form-birds.component';
 import { ListCountriesComponent } from './list-countries/list-countries.component';
 import { FormCountriesComponent } from './form-countries/form-countries.component';
+import { FormZonesComponent } from './form-zones/form-zones.component';
+import { ListZonesComponent } from './list-zones/list-zones.component';
 
 
 
@@ -16,7 +18,9 @@ import { FormCountriesComponent } from './form-countries/form-countries.componen
     ListComponent,
     FormBirdsComponent,
     ListCountriesComponent,
-    FormCountriesComponent
+    FormCountriesComponent,
+    FormZonesComponent,
+    ListZonesComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,9 @@ import { FormCountriesComponent } from './form-countries/form-countries.componen
     FormBirdsComponent,
     FormsModule,
     ListCountriesComponent,
-    FormCountriesComponent
+    FormCountriesComponent,
+    FormZonesComponent,
+    ListZonesComponent
   ]
 })
 export class ComponentsModule { }

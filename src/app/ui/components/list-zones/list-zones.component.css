@@ -1,0 +1,17 @@
+.button{
+  cursor: pointer;
+}
+
+a{
+  padding-left: 20px;
+  color: gray;
+
+}
+
+.edit:hover{
+  color: cornflowerblue;
+}
+
+.delete:hover{
+  color: darkred;
+}

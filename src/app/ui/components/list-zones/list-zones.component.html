@@ -1,0 +1,18 @@
+<div class="container">
+  <table class="table table-hover">
+    <tbody *ngFor="let item of lista">
+    <tr>
+      <th scope="row">{{ item.id }}</th>
+      <td>{{ item.zoneName }}</td>
+      <td>
+        <a class="button delete" (click)="delete(item.id)">
+          <span class="material-symbols-outlined"> delete </span>
+        </a>
+        <a class="button edit" (click)="edit(item.id)">
+          <span class="material-symbols-outlined"> edit </span>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IBirdModel} from "../../../domain/models/bird/bird.model";
 
 @Component({
@@ -9,11 +9,22 @@ import {IBirdModel} from "../../../domain/models/bird/bird.model";
 export class FormBirdsComponent implements OnInit {
 
   guardarBtn:boolean = true;
-  id: string = "";
+  id: number = 0;
   scientificName: string = "";
   name: string = "";
 
-  @Output() event = new EventEmitter<IBirdModel>();
+  @Input()
+  set infoBird (bird: IBirdModel |null){
+    if (bird != null){
+      // @ts-ignore
+      this.id = bird.id;
+      this.name = bird.commonName;
+      this.scientificName = bird.scientificName;
+      this.guardarBtn = false;
+    }
+  }
+  @Output() evento = new EventEmitter<IBirdModel>();
+  @Output() eventoEdit = new EventEmitter<IBirdModel>();
 
   constructor() { }
 
@@ -25,10 +36,29 @@ export class FormBirdsComponent implements OnInit {
       scientificName: this.scientificName,
       commonName: this.name
     }
-    this.event.emit(
+    this.evento.emit(
       obj
     )
-
+    this.id = 0
+    this.name = "";
+    this.scientificName = "";
   }
+
+  updateBird(){
+    let obj: IBirdModel = {
+      id : this.id,
+      scientificName: this.scientificName,
+      commonName: this.name
+    }
+    this.eventoEdit.emit(
+      obj
+    )
+    this.id = 0
+    this.name = "";
+    this.scientificName = "";
+    this.guardarBtn = true;
+  }
+
+
 
 }

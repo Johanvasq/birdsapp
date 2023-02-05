@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { BirdUseCase } from 'src/app/domain/usecase/bird.usecase';
-import Swal from 'sweetalert2';
 import {IBirdModel} from "../../../domain/models/bird/bird.model";
 
 @Component({
@@ -10,8 +9,9 @@ import {IBirdModel} from "../../../domain/models/bird/bird.model";
 })
 export class ListComponent implements OnInit {
 
-  @Input() lista: any[] = [];
-  @Output() newItemEvent = new EventEmitter<IBirdModel | null>();
+  @Input() lista: IBirdModel[] | null = [];
+  @Output() editId = new EventEmitter<IBirdModel | null>();
+  @Output() deleteId = new EventEmitter<number>();
 
   constructor(private birdUseCase: BirdUseCase) { }
 
@@ -19,27 +19,21 @@ export class ListComponent implements OnInit {
 
   }
 
-  async delete(id: number) {
-    await this.birdUseCase.deleteBird(id).subscribe(
-      result => {
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Eliminado',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
-    )
+  delete(id: number | undefined){
+    if (id != null){
+      this.deleteId.emit(id)
+
+    }
   }
 
-  async edit(id: number) {
-    await this.birdUseCase.findBirdById(id).subscribe(
-      result => {
-        this.newItemEvent.emit(result)
-      }
-    )
-
+  async edit(id: number | undefined) {
+    if (id != null){
+      await this.birdUseCase.findBirdById(id).subscribe(
+        result => {
+          this.editId.emit(result)
+        }
+      )
+    }
   }
 
 }

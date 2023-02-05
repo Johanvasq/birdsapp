@@ -1,6 +1,8 @@
 import { IBirdModel } from 'src/app/domain/models/bird/bird.model';
 import { Component, OnInit } from '@angular/core';
 import {BirdUseCase} from "../../../domain/usecase/bird.usecase";
+import Swal from "sweetalert2";
+
 
 @Component({
   selector: 'app-birds',
@@ -9,17 +11,7 @@ import {BirdUseCase} from "../../../domain/usecase/bird.usecase";
 })
 export class BirdsComponent implements OnInit {
 
-  listaBirds: IBirdModel[] = [{
-    id: 1,
-    commonName: "pajaro",
-    scientificName: "string"
-  },
-  {
-    id: 2,
-    commonName: "pajaro2",
-    scientificName: "string2"
-  }
-  ]
+  listaBirds: Array<IBirdModel> | null = []
 
   bird : IBirdModel | null;
 
@@ -28,17 +20,68 @@ export class BirdsComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.listar();
+  }
+  async listar(){
+    await this.birdUseCase.findAllBirds().subscribe(
+
+      result => {
+        this.listaBirds = result
+
+      }
+
+    );
   }
 
   addItem(newItem: IBirdModel | null) {
     this.bird = newItem
   }
-  saveBird(item: IBirdModel){
-    this.birdUseCase.saveBird(item).subscribe(
-      result => {
-        alert("Guardado")
+  async saveBird(item: IBirdModel){
+    await this.birdUseCase.saveBird(item).subscribe(
+      () => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Guardado',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.listar();
       }
-    )
+    );
+
+  }
+
+  async delete(id: number) {
+    await this.birdUseCase.deleteBird(id).subscribe(
+      () => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Eliminado correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.listar();
+      }
+    );
+
+  }
+
+  async updateBird(item: IBirdModel){
+    await this.birdUseCase.updateBird(item).subscribe(
+      () => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Guardado',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.listar();
+      }
+    );
+
   }
 
 }

@@ -5,6 +5,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from '../../app-routing.module';
 import { ListComponent } from './list/list.component';
 import { FormBirdsComponent } from './form-birds/form-birds.component';
+import { ListCountriesComponent } from './list-countries/list-countries.component';
+import { FormCountriesComponent } from './form-countries/form-countries.component';
 
 
 
@@ -12,18 +14,22 @@ import { FormBirdsComponent } from './form-birds/form-birds.component';
   declarations: [
     NavbarComponent,
     ListComponent,
-    FormBirdsComponent
+    FormBirdsComponent,
+    ListCountriesComponent,
+    FormCountriesComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     AppRoutingModule
   ],
-  exports:[
+  exports: [
     NavbarComponent,
     ListComponent,
     FormBirdsComponent,
-    FormsModule
+    FormsModule,
+    ListCountriesComponent,
+    FormCountriesComponent
   ]
 })
 export class ComponentsModule { }

@@ -1,4 +1,4 @@
 export interface ICountryModel{
-    id : number;
+    id? : number;
     countryName : string;
 }

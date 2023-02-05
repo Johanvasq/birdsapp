@@ -1,1 +1,12 @@
-<p>countries works!</p>
+<div class="container-sm mt-lg-5 ">
+  <div class="row align-content-between">
+    <div class="lista col-md-8">
+      <app-list-countries [lista]="listaCountries" (editId)="addItem($event)" (deleteId)="delete($event)" ></app-list-countries>
+    </div>
+    <div class="formulario col-md-3 background shadow">
+      <app-form-countries (evento)="saveCountry($event)" [infoCountry]="country" (eventoEdit)="updateCountry($event)"></app-form-countries>
+    </div>
+  </div>
+</div>
+
+

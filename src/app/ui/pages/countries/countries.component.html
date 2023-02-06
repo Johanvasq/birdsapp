@@ -1,6 +1,7 @@
 <div class="container-sm mt-lg-5 ">
   <div class="row align-content-between">
     <div class="lista col-md-8">
+      <h1>Lista paises</h1>
       <app-list-countries [lista]="listaCountries" (editId)="addItem($event)" (deleteId)="delete($event)" ></app-list-countries>
     </div>
     <div class="formulario col-md-3 background shadow">
